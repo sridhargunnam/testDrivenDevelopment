@@ -41,9 +41,13 @@ find_package(benchmark REQUIRED)
 set(CMAKE_CXX_FLAGS --coverage)
 set(CMAKE_CXX_FLAGS  -lpthread)
 
-
-add_executable(tdd main.cpp sample1.cpp sample1.h testShuffle.cpp)
-target_link_libraries(tdd gtest gtest_main benchmark::benchmark benchmark::benchmark_main)
+#
+#add_executable(tdd main.cpp sample1.cpp sample1.h testShuffle.cpp)
+#target_link_libraries(tdd gtest gtest_main benchmark::benchmark benchmark::benchmark_main)
+#
 
 add_executable(testShuffle  testShuffle.cpp shuffle.cpp shuffle.h)
-target_link_libraries(testShuffle gtest gtest_main benchmark::benchmark benchmark::benchmark_main)
+target_link_libraries(testShuffle gtest gtest_main )
+
+
+#add_executable(fp function_ptr.cpp)

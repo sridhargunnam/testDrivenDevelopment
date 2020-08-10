@@ -11,24 +11,29 @@
 #include<set>
 #include <cstdlib>
 #include <iostream>
+#include <memory>
 
 using namespace std;
-class Solution {
+class Shuffle {
+private:
     vector<int> original;
     vector<int> current;
+    std::unique_ptr<vector<int>> orig_ref;
 public:
-    Solution(vector<int>& nums) {
+    Shuffle(vector<int>& nums) {
+        orig_ref = std::make_unique<vector<int>>(nums);
         srand(time(NULL));
-        current = nums;
-        for(auto i: nums)
+        for(auto i: nums) {
             original.push_back(i);
+            current.push_back(i);
+        }
     }
 
     /** Resets the array to its original configuration and return it. */
     vector<int> reset() {
         for(auto i=0; i<original.size(); i++)
-            current[i] = original[i];
-        return current;
+            (*orig_ref)[i] = original[i];
+        return *orig_ref;
     }
 
     /** Returns a random shuffling of the array. */
@@ -47,9 +52,12 @@ public:
                 track.insert(index+1);
                 temp.push_back(current[index]);
             }
-
         }
-        return temp;
+        assert((*orig_ref).size() == temp.size());
+        for( auto i = 0; i< (*orig_ref).size(); i++){
+            (*orig_ref)[i] = temp[i];
+        }
+        return (*orig_ref);
     }
 
 };
