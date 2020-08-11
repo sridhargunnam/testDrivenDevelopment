@@ -47,7 +47,5 @@ set(CMAKE_CXX_FLAGS  -lpthread)
 #
 
 add_executable(testShuffle  testShuffle.cpp shuffle.cpp shuffle.h)
-target_link_libraries(testShuffle gtest gtest_main )
+target_link_libraries(testShuffle gtest gtest_main gmock)
 
-
-#add_executable(fp function_ptr.cpp)

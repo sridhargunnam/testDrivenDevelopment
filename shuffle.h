@@ -12,6 +12,7 @@
 #include <cstdlib>
 #include <iostream>
 #include <memory>
+#include <stdexcept>
 
 using namespace std;
 class Shuffle {
@@ -20,7 +21,10 @@ private:
     vector<int> current;
     std::unique_ptr<vector<int>> orig_ref;
 public:
-    Shuffle(vector<int>& nums) {
+    Shuffle(vector<int> nums)  {
+        if(nums.size() > 5) {
+            assert(nums.size() > 5);
+        }
         orig_ref = std::make_unique<vector<int>>(nums);
         srand(time(NULL));
         for(auto i: nums) {
