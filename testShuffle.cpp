@@ -42,3 +42,5 @@ TEST(Shuffle, check_fatal_exit){
 TEST(Shuffle, check_exceptions){
     //EXPECT_THAT(Shuffle({3,4,2,1,6,5}),             Shuffle({3,4}));
 }
+
+// Delete this line later: Test git push https to ssh change
