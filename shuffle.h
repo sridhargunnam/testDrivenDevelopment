@@ -15,17 +15,17 @@
 #include <stdexcept>
 
 using namespace std;
-class Shuffle {
+class Shuffle final {
 private:
     vector<int> original;
     vector<int> current;
     std::unique_ptr<vector<int>> orig_ref;
 public:
-    Shuffle(vector<int> nums)  {
+    Shuffle(vector<int> &nums) : orig_ref{std::make_unique<vector<int>>(nums)}  {
         if(nums.size() > 5) {
             assert(nums.size() > 5);
         }
-        orig_ref = std::make_unique<vector<int>>(nums);
+
         srand(time(NULL));
         for(auto i: nums) {
             original.push_back(i);

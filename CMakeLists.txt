@@ -49,3 +49,4 @@ set(CMAKE_CXX_FLAGS  -lpthread)
 add_executable(testShuffle  testShuffle.cpp shuffle.cpp shuffle.h)
 target_link_libraries(testShuffle gtest gtest_main gmock)
 
+add_executable(simple cmake-build-debug/const_correctness.cpp)
