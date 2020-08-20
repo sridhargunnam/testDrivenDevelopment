@@ -71,4 +71,9 @@ int main()
     auto int_val     = fctr_int();
     std::cout << "str_val = " << str_val << "\n";
     std::cout << "int_val = " << int_val << "\n";
+
+    const int *p_int;
+    int y = 10;
+    p_int = &y;
+    std::cout << std::endl;
 }

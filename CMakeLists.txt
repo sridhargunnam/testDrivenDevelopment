@@ -46,7 +46,10 @@ set(CMAKE_CXX_FLAGS  -lpthread)
 #target_link_libraries(tdd gtest gtest_main benchmark::benchmark benchmark::benchmark_main)
 #
 
-add_executable(testShuffle  testShuffle.cpp shuffle.cpp shuffle.h)
+add_executable(testShuffle  testShuffle.cpp shuffle.cpp shuffle.h testShuffleHelper.h testShuffleHelper.cpp testMat2D.cpp)
 target_link_libraries(testShuffle gtest gtest_main gmock)
 
 add_executable(simple cmake-build-debug/const_correctness.cpp)
+
+add_executable(testMat2D testMat2D.cpp Mat2D.cpp Mat2D.h)
+target_link_libraries(testMat2D gtest gtest_main gmock)

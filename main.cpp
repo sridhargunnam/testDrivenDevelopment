@@ -91,7 +91,6 @@
 
 // Tests IsPrime()
 
-
 // Tests for assertion
     TEST(IsPrimeTest, Assertion){
         // gmock
